@@ -1,11 +1,16 @@
 library(shiny)
 library(quarto)
 
+#Sys.setenv(QUARTO_PATH="/opt/quarto/1.6.40/bin/quarto")
+#Sys.setenv(QUARTO_PATH="/usr/local/bin/quarto")
+print(getwd())
+
 ui <- fluidPage(
   downloadButton("download_report", "Download report")
 )
 
 server <- function(input, output, session) {
+  
   output$download_report <- downloadHandler(
     
     filename =  "Important report.pdf",
